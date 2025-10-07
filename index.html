@@ -1,168 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reforma tributária pode impulsionar filantropia!</title>
   <style>
-    body {
+    :root {
+      --azul-ctb: #0056A6;
+      --azul-destaque: #2976D2;
+      --cinza-claro: #f5f7fa;
+      --cinza-borda: #e3e5ed;
+      --borda-radius: 20px;
+      --sombra-card: 0 4px 28px rgba(41, 118, 210, 0.08);
+    }
+    html, body {
       margin: 0;
       padding: 0;
+      background: var(--cinza-claro);
       font-family: 'Inter', Arial, Helvetica, sans-serif;
-      background: #f5f7fa;
-      display: flex;
-      flex-direction: column;
       min-height: 100vh;
+      color: #26272a;
     }
     header {
-      background: #0056A6;
+      background: var(--azul-ctb);
+      padding: 40px 16px 32px 16px;
+      text-align: center;
+      position: relative;
+      border-bottom: 4px solid var(--azul-destaque);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px 0 16px 0;
-      gap: 28px;
-      flex-wrap: wrap;
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
       position: relative;
-      text-align: center;
+      flex-wrap: wrap;
     }
-    header .logo {
-      height: 160px;
+    .logo-ctb {
+      height: 120px;
       width: auto;
-      margin-left: 0;
-      margin-right: 24px;
-      border-radius: 14px;
+      border-radius: 13px;
       background: #fff;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+      display: block;
+      margin-right: 14px;
     }
-    header .title {
+    .header-title {
       color: #fff;
-      font-size: 2.6rem;
       font-weight: 900;
+      font-size: 2.5rem;
       font-family: 'Inter', Arial, Helvetica, sans-serif;
-      letter-spacing: -1.2px;
-      flex: 1 1 auto;
-      text-align: left;
-      margin: 0 18px 0 0;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      line-height: 1.1;
+      letter-spacing: -1.1px;
+      text-align: center;
+      flex: 1 1 100%;
+      line-height: 1.14;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      margin: 0 0 0 0;
+      min-width: 260px;
+      max-width: 650px;
     }
-    header .donate {
+    .donate-block {
       display: flex;
       align-items: center;
-      gap: 12px;
-      color: #000;
+      gap: 14px;
+      color: #111;
       font-weight: 700;
-      font-size: 1.25rem;
-      flex: 0 1 auto;
-      white-space: nowrap;
+      font-size: 1.14rem;
+      margin-left: 14px;
+      margin-top: 6px;
     }
-    header .donate img.qrcode {
-      height: 60px;
-      width: 60px;
+    .donate-block img {
+      height: 55px;
+      width: 55px;
       object-fit: contain;
       border: 1.5px solid #eee;
       border-radius: 9px;
       background: #fff;
+      display: inline-block;
     }
-    header .cnpj {
-      font-size: 1.07rem;
-      color: #000;
+    .cnpj {
+      font-size: 1.03rem;
+      color: #272d33;
       font-weight: 500;
     }
-    .container {
-      display: flex;
-      margin: 2% auto;
-      max-width: 1100px;
+    .infographic {
+      margin: 45px auto;
       background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 0 12px 0 rgba(41,118,210,.13);
-      flex-grow: 1;
+      border-radius: var(--borda-radius);
+      box-shadow: var(--sombra-card);
+      max-width: 1020px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 32px;
     }
     .img-box {
-      width: 45%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 100%;
       background: #e6eefa;
-      border-radius: 18px 0 0 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 38px 0 0 38px;
+      position: relative;
+      border-radius: var(--borda-radius) var(--borda-radius) 0 0;
+      box-sizing: border-box;
     }
-    .img-box img {
-      width: 88%;
+    .img-box img.logo-svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .img-box img.rf {
+      width: 41vw;
       max-width: 320px;
-      min-width: 128px;
+      min-width: 115px;
+      display: block;
+      margin-bottom: 0;
+      border-radius: 12px;
+    }
+    @media (max-width: 780px){
+      .img-box {
+        padding-left: 19px;
+      }
+      .infographic {
+        margin: 24px 2vw;
+      }
+    }
+    @media (max-width:530px){
+      .header-title {font-size:1.12rem;}
+      .logo-ctb {height: 58px;}
+      .img-box img.logo-svg {width:36px; height:36px;}
+      .img-box img.rf {max-width:95vw; width:95vw;}
+      .img-box{padding:18px 0 0 8px;}
     }
     .content {
-      width: 55%;
-      padding: 40px 36px 36px 36px;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 740px;
+      padding: 36px 28px 0px 35px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      align-items: stretch;
     }
     .info-box {
-      background: #2976d2;
-      border-radius: 12px;
+      background: var(--azul-destaque);
+      border-radius: 13px;
+      padding: 23px 6%;
       color: #fff;
-      padding: 16px 4%;
-      margin-bottom: 24px;
-      font-size: 1.12rem;
+      font-size: 1.13rem;
       font-weight: 500;
-      box-shadow: 0 2px 8px rgba(41,118,210,0.09);
-    }
-    .infotitle {
-      font-size: 1.16rem;
-      font-weight: bold;
-      color: #fff;
-      margin-bottom: 7px;
-      letter-spacing: .5px;
-    }
-    .stats {
-      display: flex;
-      flex-direction: column;
-      margin-top: 20px;
-      font-size: 1.07rem;
-    }
-    .stat-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 7px;
-    }
-    .stat-label {
-      color: #0056a6;
-      font-weight: bold;
-    }
-    .stat-value {
-      color: #2976d2;
-    }
-    .benefits, .trends, .cases {
-      margin-top: 18px;
-      margin-bottom: 14px;
-    }
-    .benefits li, .trends li, .cases li {
-      margin-bottom: 6px;
-      color: #222;
+      box-shadow: 0 2px 9px rgba(41,118,210,0.11);
+      margin-bottom: 28px;
     }
     .topic-title {
-      color: #2976D2;
-      font-weight: 800;
-      font-size: 1.04rem;
-      margin-bottom: 6px;
-      margin-top: 20px;
+      font-weight: 850;
+      color: var(--azul-destaque);
+      font-size: 1.14rem;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.009em;
     }
-    .cases span {
-      color: #0056A6;
-      font-weight: 600;
+    .stats-block {
+      background: var(--cinza-claro);
+      padding: 22px 6%;
+      border-radius: 12px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 5px #e3e5ed4c;
     }
+    .stats-table td {
+      padding: 9px 6px;
+      border-bottom: 1px solid var(--cinza-borda);
+      font-size: 1rem;
+    }
+    .stats-label { color: var(--azul-ctb); font-weight: 700; padding-right: 16px; }
+    .stats-value { color: var(--azul-destaque); text-align: right; }
+    ul { margin: 0 0 17px 22px; padding: 0; font-size: 1rem; }
+    .cases li span { color: var(--azul-ctb); font-weight: 600; }
+    .section { margin-bottom: 20px; }
     footer {
-      background: #0056A6;
+      background: var(--azul-ctb);
       color: #fff;
-      padding: 20px 38px;
+      padding: 24px 38px;
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
       gap: 32px;
       flex-wrap: wrap;
-      font-size: 0.98rem;
+      font-size: 1.02rem;
       width: 100%;
+      margin-top: auto;
+      border-top: 5px solid var(--azul-destaque);
     }
     footer .footer-text {
       display: flex;
@@ -179,77 +217,79 @@
     footer a:hover {
       text-decoration: underline;
     }
-    @media (max-width: 820px) {
-      .container { flex-direction: column; max-width: 99vw; }
-      .img-box, .content { width: 100%; border-radius: 18px 18px 0 0; }
-      .img-box img { max-width: 220px; }
-      .content { padding: 22px 6vw 24px 6vw; }
-      header .logo { height: 72px; min-width: 62px; margin-right:6px; }
-      header .title { font-size: 1.12rem; }
-    }
   </style>
 </head>
 <body>
   <header>
-    <img src="ctb1.png" alt="Logo CTB" class="logo" />
-    <span class="title">Reforma tributária pode impulsionar filantropia!</span>
-    <div class="donate">
-      <img src="qrcode.png" alt="QRCode para Doação" class="qrcode" />
-      <span>DOE</span>
-      <span class="cnpj">CNPJ 23.146328/0001-16</span>
+    <div class="header-content">
+      <img src="ctb1.png" alt="Logo CTB" class="logo-ctb" />
+      <div class="header-title">
+        Reforma tributária<br>pode impulsionar filantropia!
+      </div>
+      <div class="donate-block">
+        <img src="qrcode.png" alt="QRCode para Doação" />
+        <span>DOE</span>
+        <span class="cnpj">CNPJ 23.146328/0001-16</span>
+      </div>
     </div>
   </header>
-  <div class="container">
+  <div class="infographic">
     <div class="img-box">
-      <img src="rf.png" alt="Ilustração reforma tributária" />
+      <img src="logo.svg" alt="Ícone CTB" class="logo-svg" />
+      <img src="rf.png" alt="Ilustração reforma tributária" class="rf" />
     </div>
     <div class="content">
-      <div class="info-box">
-        <div class="infotitle">O que a Reforma Tributária muda:</div>
-        <ul style="padding:0 18px 0 15px; margin:0;">
-          <li>Isenção total do ITCMD para doações filantrópicas (dinheiro, bens, serviços) a OSCs.</li>
-          <li>Alíquota especial e possibilidade de 0% em IBS e CBS para entidades sociais, saúde, cultura, educação e inovação.</li>
-          <li>Fim da necessidade de CEBAS para isenção do CBS, se atendido o CTN.</li>
-          <li>Incentivo real à filantropia familiar e corporativa e cultura de doação.</li>
-        </ul>
+      <div class="info-box section">
+        <b>O que a Reforma Tributária muda no Terceiro Setor?</b><br><br>
+        Agora a imunidade para doações filantrópicas (ITCMD) passa a valer automaticamente para associações, fundações e projetos de interesse público, eliminando entraves burocráticos e ampliando o alcance das parcerias sociais. O ITCMD passa a ter <b>alíquota progressiva</b>, variando de 2% a 8% conforme o valor doado e a capacidade doador, gerando mais justiça fiscal. Estados e municípios podem personalizar faixas e regras, mas a <b>isenção para filantropia foi uniformizada nacionalmente</b>.
       </div>
-      <div class="stats">
-        <div class="stat-row">
-          <span class="stat-label">PIB do Terceiro Setor</span><span class="stat-value">R$ 221 bilhões</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Empregos mantidos</span><span class="stat-value">5,9 milhões</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Doadores ativos</span><span class="stat-value">42,5 milhões</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Total doações anuais</span><span class="stat-value">R$ 24,3 bilhões (2024)</span>
-        </div>
+      <div class="stats-block section">
+        <table class="stats-table">
+          <tr><td class="stats-label">PIB do Terceiro Setor</td><td class="stats-value">R$ 221 bilhões</td></tr>
+          <tr><td class="stats-label">Empregos mantidos</td><td class="stats-value">5,9 milhões</td></tr>
+          <tr><td class="stats-label">Doadores ativos</td><td class="stats-value">42,5 milhões</td></tr>
+          <tr><td class="stats-label">Total das doações (2024)</td><td class="stats-value">R$ 24,3 bilhões</td></tr>
+          <tr><td class="stats-label">Estados já aderentes à progressividade</td><td class="stats-value">18 de 27</td></tr>
+        </table>
       </div>
-      <div class="benefits">
-        <div class="topic-title">Principais Benefícios da Nova Lei</div>
+      <div class="section">
+        <div class="topic-title">PAINEL DE BENEFÍCIOS</div>
         <ul>
-          <li>Mais recursos disponíveis e previsibilidade para entidades sociais e filantrópicas.</li>
-          <li>Agilidade em respostas a emergências, desastres e demandas sociais.</li>
-          <li>Aumento do impacto em saúde, educação, cultura e inovação social.</li>
+          <li><b>Gratuidade e maior alcance social</b> para projetos em saúde, educação, cultura, esportes e assistência.</li>
+          <li><b>Desburocratização</b> para captação de recursos (Cebas e títulos já não exigidos para isenção de doações filantrópicas).</li>
+          <li><b>Maior justiça fiscal</b>: tributação mais alta para grandes fortunas, e estímulo para grandes doadores contribuírem com causas sociais.</li>
+          <li><b>Cashback social:</b> modelo inovador permite devolução de parte do imposto para famílias e entidades vulneráveis.</li>
         </ul>
       </div>
-      <div class="trends">
-        <div class="topic-title">Tendências e Movimentos em 2025</div>
+      <div class="section">
+        <div class="topic-title">MAIS INFORMAÇÕES DA REFORMA</div>
         <ul>
-          <li>Doação se consolida como instrumento de enfrentamento de emergências ambientais e sociais.</li>
-          <li>Valorização da saúde mental, diversidade e inclusão como causas centrais.</li>
-          <li>Crescimento das doações de empresas e pessoas físicas.</li>
+          <li>Nova Câmara Nacional Administrativa para resolver recursos tributários em ambiente 100% digital.</li>
+          <li>Credenciamento facilitado de OSCs: basta finalidade social comprovada por estatuto/atos.</li>
+          <li>Possibilidade de alíquota zero de IBS e CBS para entidades que comprovem atuação social, ambiental ou de inclusão.[web:34][web:48][web:51]</li>
+          <li>Todos os benefícios dependem de regularidade fiscal e prestações transparentes.</li>
         </ul>
       </div>
-      <div class="cases">
-        <div class="topic-title">Exemplos Recentes de Filantropia Transformadora</div>
+      <div class="section">
+        <div class="topic-title">IMPACTOS PRÁTICOS E EXEMPLOS</div>
         <ul>
-          <li><span>Sociobiodiversidade:</span> R$ 40 milhões para até 400 projetos de comunidades tradicionais.</li>
-          <li><span>Combate à fome:</span> 14% das grandes doações familiares foram para ações de segurança alimentar.</li>
-          <li><span>Saúde mental:</span> Prioridade para projetos de atenção emocional após a pandemia.</li>
+          <li><span>Saúde:</span> Filantrópicas que administram 59% dos leitos do SUS captam mais recursos sem perder a imunidade.</li>
+          <li><span>Educação:</span> Instituições ampliam bolsas e vagas gratuitas.</li>
+          <li><span>Ambiental:</span> R$ 40 milhões em 2025 para projetos de sociobiodiversidade.</li>
+          <li><span>Resposta a emergências:</span> Mais agilidade para captar e distribuir doações (como em desastres e enchentes).</li>
+          <li><span>Cultura e esporte:</span> Apoio ampliado a clubes e projetos esportivos regionais.</li>
         </ul>
+      </div>
+      <div class="section">
+        <div class="topic-title">FIQUE ATENTO</div>
+        <ul>
+          <li>As regras dependem da regulamentação estadual e federal e são implementadas até 2026.</li>
+          <li>Cada estado pode definir sua própria tabela de progressividade do ITCMD.</li>
+          <li>Transparência será obrigatória: prestações de contas claras e regulares.</li>
+        </ul>
+      </div>
+      <div style="margin-top:26px;font-size:1rem;color:#222;">
+        O Brasil vai fortalecer uma cultura de doação moderna e solidária. O CTB e o Terceiro Setor avançam com mais transparência, eficiência e oportunidade para todos! Siga nossos canais para novidades e capacitações exclusivas.
       </div>
     </div>
   </div>
@@ -261,4 +301,4 @@
     </div>
   </footer>
 </body>
-</html>
+  </html>
