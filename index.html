@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reforma Tributária & Filantropia — Apoie o CTB</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --azul-ctb: #0056A6;
-      --azul-escuro: #003d75;
       --azul-destaque: #2976D2;
       --cinza-bg: #f5f7fa;
       --cinza-card: #e9f0f6;
@@ -27,132 +26,185 @@
       background: var(--azul-ctb);
       padding: 44px 0 36px 0;
       border-bottom: 5px solid var(--azul-destaque);
+      width: 100%;
+      box-sizing: border-box;
     }
     .header-flex {
       display: flex; flex-direction: row; align-items: center; justify-content: center;
       gap: 40px; max-width: 1200px; margin: 0 auto; flex-wrap: wrap;
+      width: 100%;
     }
     .logo-ctb {
       height: 112px; width: auto; border-radius: 12px;
       background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
+    .header-main {
+      display: flex; flex-direction: column; align-items: flex-start; justify-content: center; flex: 1 1 100%; min-width: 220px; max-width: 670px;
+    }
     .header-title {
       color: #fff; font-weight: 900; font-size: 2.25rem; letter-spacing: -1px;
-      line-height: 1.15; max-width: 570px; min-width: 220px; margin: 0;
-      text-align: center; flex: 1 1 100%;
-      text-shadow: 0 2px 14px rgba(0,0,0,0.10);
+      line-height: 1.15; margin: 0 0 12px 0;
+      text-align: left; text-shadow: 0 2px 14px rgba(0,0,0,0.10);
+    }
+    .header-desc,
+    .header-impact {
+      color: #fff; font-size: 1.12rem; font-weight: 500;
+      margin: 0 0 8px 0;
+      text-align: left;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.11);
     }
     .donate-block {
-      display: flex; flex-direction: row; align-items: center; gap: 13px; color: #17222f;
-      font-weight: 800; font-size: 1.06rem; margin-left: 12px;
+      display: flex; flex-direction: row; align-items: center; gap: 21px;
+      margin-top: 16px;
     }
     .donate-block img {
-      height: 45px; width: 45px; object-fit: contain;
-      border: 1.5px solid #eee; border-radius: 9px; background: #fff;
+      height: 160px; width: auto; border-radius: 14px; background: #fff;
+      object-fit: contain; border: 2px solid #eaeaea; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
-    .cnpj { font-size: 0.97rem; color: #29384f; font-weight: 500; }
-
+    .donate-info {
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 14px; color: #fff; text-align: left; font-size: 1.10rem; font-weight: 700;
+      margin-left: 8px;
+    }
+    .donate-info span {
+      color: #fff;
+      font-size: 1.28rem;
+      font-weight: 800;
+      text-shadow: 0 1px 5px rgba(0,0,0,.07);
+    }
+    .donate-info .cnpj-header {
+      color: #fff; font-size: 1.07rem; font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 830px) {
+      .header-flex {flex-direction: column; align-items: flex-start;}
+      .header-main {max-width: 95vw;}
+      .header-title,
+      .header-desc,
+      .header-impact {text-align: left;}
+      .donate-info span {font-size: 1.07rem;}
+      .donate-block img {height: 90px;}
+    }
     main {
-      max-width: 1060px; margin: 44px auto 0 auto; background: var(--branco);
+      max-width: 1080px; margin: 38px auto 0 auto; background: var(--branco);
       border-radius: var(--radius); box-shadow: var(--sombra); overflow: hidden;
-      display: flex; flex-direction: column; align-items: stretch; padding-bottom: 34px;
+      display: flex; flex-direction: row; align-items: stretch;
+      justify-content: flex-start;
+      position: relative; padding: 0;
     }
-    .img-box {
-      width: 100%; background: #e6eefa;
-      display: flex; flex-direction: row; align-items: flex-start;
-      gap: 26px; padding: 36px 0 0 32px;
-      border-radius: var(--radius) var(--radius) 0 0; min-height: 102px;
+    .rf-box {
+      background: #e6eefa; min-width: 280px; max-width: 370px; width: 32vw; display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: center;
+      border-radius: var(--radius) 0 0 var(--radius);
+      padding: 42px 20px;
     }
-    .img-box img.logo-svg { width: 60px; height: 60px; margin-top: 8px;}
-    .img-box img.rf { width: 36vw; max-width: 290px; min-width: 99px; border-radius: 13px;}
-    @media (max-width:720px){
-      .img-box {padding-left:7px;}
-      main {margin: 23px 1vw;}
-      .logo-ctb {height: 52px;}
-      .header-title {font-size:1.09rem;}
+    .rf-box img {
+      width: 100%; height: auto; max-width: 270px; min-width: 120px; border-radius: 19px; box-shadow: 0 3px 11px #00000011;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px){
+      main {flex-direction: column;}
+      .rf-box {width: 100%; max-width: 600px; border-radius: var(--radius) var(--radius) 0 0; margin:0 auto;}
+      .rf-box img {margin: 0 auto;}
+      .content {border-radius: 0 0 var(--radius) var(--radius);}
     }
     .content {
-      width: 100%; max-width: 730px;
-      padding: 29px 18px 0 34px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 20px;
+      width: 100%; max-width: 700px;
+      padding: 45px 30px 22px 35px; margin: 0;
+      display: flex; flex-direction: column; gap: 22px;
+      box-sizing: border-box;
+      background: var(--branco);
     }
     .info-card {
       background: var(--azul-destaque);
-      border-radius: 14px; color: #fff;
-      font-size: 1.14rem; font-weight: 500;
+      border-radius: 14px; color: #fff; font-size: 1.13rem; font-weight: 500;
       box-shadow: 0 2px 8px rgba(41,118,210,0.11);
-      padding: 22px 6%; margin-bottom: 7px;
+      padding: 22px 7% 20px 7%; margin-bottom: 7px;
     }
     .highlight-title {
-      font-weight: 900; color: var(--azul-ctb); font-size: 1.17rem;
-      margin-top: 17px; margin-bottom: 7px;
-      text-transform: uppercase; letter-spacing: .010em;
+      font-weight: 900; color: var(--azul-ctb); font-size: 1.16rem; margin: 22px 0 9px 0;
+      text-transform: uppercase; letter-spacing: .011em;
     }
     .stats-block {
-      background: var(--cinza-card); padding: 14px 6%; border-radius: 12px;
-      box-shadow: 0 2px 7px #e3e5ed44; margin-bottom: 8px;
+      background: var(--cinza-card); padding: 14px 7%; border-radius: 12px;
+      box-shadow: 0 2px 8px #e3e5ed56; margin-bottom: 7px;
     }
-    .stats-table td {
-      padding: 8px 7px; border-bottom: 1px solid #e3e5ed;
-      font-size: 0.98rem;
-    }
+    .stats-table td {padding: 8px 7px; border-bottom: 1px solid #e3e5ed; font-size: 0.99rem;}
     .stats-label { color: var(--azul-ctb); font-weight: 700;}
     .stats-value { color: var(--azul-destaque); text-align: right;}
-    ul { margin: 0 0 11px 17px; line-height: 1.68;}
+    ul { margin: 0 0 13px 14px; line-height: 1.7;}
     .doe-block {
       background: #eaf5fb;
       border-radius: 13px;
-      padding: 15px 15px;
-      color: #252c35; font-weight: 500;
-      font-size: 1.08rem; margin-top: 11px;
-      box-shadow: 0 1px 6px #d8e8f3a1;
+      padding: 17px 18px; color: #262b34;
+      font-weight: 500; font-size: 1.08rem;
+      margin-top: 11px; box-shadow: 0 1px 7px #d8e8f3a1;
       display: flex; flex-direction: column; gap: 8px;
     }
     .doe-block .destaque { color: var(--azul-ctb); font-weight: 900; }
-    .cta-donate {
-      background: var(--azul-destaque); color: #fff;
-      padding: 13px 15px; font-weight: 700; font-size: 1.11rem;
-      border: none; border-radius: 9px; cursor: pointer;
+    .cta-donate { background: var(--azul-destaque); color: #fff;
+      padding: 13px 15px; font-weight: 700; font-size: 1.10rem;
+      border: none; border-radius: 9px; cursor:pointer;
       margin-top: 9px; align-self: flex-start;
     }
     .cta-donate:hover { background: var(--azul-ctb);}
     footer {
       background: var(--azul-ctb); color: #fff;
-      padding: 27px 30px; display: flex;
-      justify-content: flex-start; align-items: flex-start;
-      gap: 23px; flex-wrap: wrap; font-size: 1.03rem;
+      padding: 27px 30px; display: flex; flex-direction: row; justify-content: space-between;
+      align-items: flex-start; gap: 23px; flex-wrap: wrap; font-size: 1.03rem;
       margin-top: 33px; border-top: 5px solid var(--azul-destaque);
     }
-    footer .footer-text {
-      display: flex; flex-direction: column; gap: 5px;
-      line-height: 1.32; max-width: 327px;
+    .footer-text {
+      display: flex; flex-direction: column; gap: 5px; line-height: 1.32; max-width: 325px;
+    }
+    .footer-logo {
+      align-self: flex-end; margin-left: auto; margin-right: 0;
+      display: flex; flex-direction: column; align-items: flex-end;
+    }
+    .footer-logo img {
+      width: 58px; height: 58px; margin-top: 8px; 
+      filter: drop-shadow(0 3px 12px #0056a62c);
     }
     footer a { color: #fff; text-decoration: none; font-weight: 600;}
     footer a:hover { text-decoration: underline;}
+    @media (max-width:600px) {
+      .content {padding: 15px 7vw 18px 7vw;}
+      .header-flex{flex-direction: column;}
+      .footer-logo {align-self: center;}
+      .footer-logo img{margin:16px auto 0 auto;}
+      footer{flex-direction: column;}
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-flex">
       <img src="ctb1.png" alt="Logo CTB" class="logo-ctb" />
-      <div class="header-title">
-        Reforma Tributária & Filantropia<br>Faça parte da transformação com o CTB
-      </div>
-      <div class="donate-block">
-        <img src="qrcode.png" alt="Doe QRCode" />
-        <span>DOE</span>
-        <span class="cnpj">CNPJ 23.146328/0001-16</span>
+      <div class="header-main">
+        <h1 class="header-title">Reforma Tributária & Filantropia — CTB</h1>
+        <div class="header-desc">
+          A nova legislação modernizou o sistema de doações: quem apoia o CTB agora tem isenção total no ITCMD, vê seu impacto multiplicado e fortalece o tênis, a inclusão e a cultura baiana.
+        </div>
+        <div class="header-impact">
+          Grandes e pequenos doadores têm papel direto na transformação social e esportiva. Vamos juntos impulsionar o clube e o futuro!
+        </div>
+        <div class="donate-block">
+          <img src="qrcode.png" alt="QRCode para doar" />
+          <div class="donate-info">
+            <span>DOE AGORA</span>
+            <span class="cnpj-header">CNPJ 23.146328/0001-16</span>
+          </div>
+        </div>
       </div>
     </div>
   </header>
   <main>
-    <div class="img-box">
-      <img src="logo.svg" alt="Ícone CTB" class="logo-svg" />
-      <img src="rf.png" alt="Ilustração reforma tributária" class="rf" />
+    <div class="rf-box">
+      <img src="rf.png" alt="Ilustração sobre reforma tributária" />
     </div>
     <div class="content">
       <div class="info-card">
-        <b>A Reforma Tributária 2025</b> renova o ambiente filantrópico brasileiro! Doações para o CTB e instituições sociais agora são isentas de ITCMD nacionalmente. Tudo ficou mais acessível, transparente, digital e incentivador tanto para grandes quanto para pequenos doadores.
+        <b>A Reforma Tributária 2025 zerou o ITCMD para as doações filantrópicas, modernizou as regras e digitalizou todo o fluxo de apoio social no Brasil! Apoie o CTB e seja protagonista de uma nova era para o tênis, inclusão e cultura da Bahia.</b>
       </div>
       <div class="stats-block">
         <table class="stats-table">
@@ -162,45 +214,37 @@
           <tr><td class="stats-label">Total doado/ano</td><td class="stats-value">R$ 24,3 bi</td></tr>
         </table>
       </div>
-      <div class="highlight-title">Principais avanços da reforma tributária</div>
+      <div class="highlight-title">O que mudou e por quê doar?</div>
       <ul>
-        <li><b>Isenção nacional ITCMD</b> para OSCs, clubes e entidades sociais;</li>
-        <li><b>Tributação progressiva</b>: justiça fiscal, mais recurso para quem mais precisa;</li>
-        <li><b>Digitalização</b> total do processo, garantindo agilidade e controle;</li>
-        <li><b>Desburocratização</b>: o clube precisa apenas comprovar finalidade social nos seus atos e estatutos;</li>
-        <li><b>Empresas e pessoas físicas</b> ganham mais segurança ao doar — não há desconto de imposto e o impacto social é completo;</li>
-        <li><b>Mais fundos, projetos e editais</b> nas áreas de esporte, educação, saúde, cultura e sustentabilidade.</li>
+        <li><b>Isenção nacional do ITCMD</b> para OSCs e clubes: doação chega integral, sem desconto.</li>
+        <li><b>Alíquotas progressivas</b>: justiça social para grandes e pequenos doadores.</li>
+        <li><b>Digitalização e transparência</b>: mais velocidade e segurança de ponta a ponta.</li>
+        <li><b>Impacto real</b>: mais bolsas, eventos, oportunidades e estrutura para o tênis baiano.</li>
+        <li><b>Reconhecimento</b>: todo apoio recebe recibo e visibilidade institucional no CTB.</li>
       </ul>
-      <div class="highlight-title">Como apoiar o CTB em 2025</div>
+      <div class="highlight-title">Como apoiar o CTB com a nova lei?</div>
       <div class="doe-block">
-        <div>
-          <span class="destaque">1. Faça uma doação financeira</span>: pix, QRCode, DOC com CNPJ 23.146328/0001-16. Sem ITCMD, 100% doado vai direto ao projeto!
-        </div>
-        <div>
-          <span class="destaque">2. Doe equipamentos, serviços, prêmios ou horas profissionais</span>: apoio direto à estrutura, atletas e eventos do clube.
-        </div>
-        <div>
-          <span class="destaque">3. Traga sua empresa</span>: patrocínios e apoios têm reconhecimento institucional e vantagens fiscais, além de fortalecer o impacto social na Bahia.
-        </div>
-        <div>
-          <span class="destaque">4. Compartilhe e engaje</span>: divulgue a reforma e incentive mais amigos e famílias a participarem desse ciclo virtuoso.
-        </div>
+        <div><span class="destaque">1. Doação financeira</span>: pelo QRCode, Pix ou transferência, qualquer valor fortalece projetos sociais, bolsas e modernização.</div>
+        <div><span class="destaque">2. Contribua com bens e expertise</span>: prêmios, uniformes, manutenção, eventos e trabalho voluntário são bem-vindos e incentivados.</div>
+        <div><span class="destaque">3. Engaje sua empresa</span>: patrocínios têm benefício fiscal e ganham ainda mais estímulo em 2025.</div>
+        <div><span class="destaque">4. Espalhe a ideia</span>: indique, compartilhe e inspire outros a também construir mais esporte e inclusão pela filantropia.</div>
         <a href="mailto:paulo@ctb-ba.com.br?subject=Quero%20apoiar%20o%20CTB" class="cta-donate">Quero ser doador</a>
       </div>
-      <div class="highlight-title">O impacto direto da sua doação</div>
+      <div class="highlight-title">O que o Clube dos Tenistas da Bahia faz?</div>
       <ul>
-        <li>Mais bolsas esportivas, projetos sociais e inclusão de crianças, jovens e idosos;</li>
-        <li>Modernização de quadras e sede, novos eventos culturais e educativos;</li>
-        <li>Transparência, prestação de contas digital e reconhecimento público do apoio;</li>
-        <li>Oportunidade de participar e ser celebrado como agente de transformação local.</li>
+        <li>Multiplica acesso ao esporte entre jovens, adultos, idosos e pessoas com deficiência;</li>
+        <li>Oferece projetos sociais, aulas e eventos gratuitos;</li>
+        <li>Investe em infraestrutura, bolsas e inclusão de qualidade reconhecida na Bahia;</li>
+        <li>Transparência total sobre uso de recursos e resultados: acompanhe tudo em nossos canais.</li>
       </ul>
-      <div class="highlight-title">Entenda. Aja. Transforme</div>
+      <div class="highlight-title">Transforme seu apoio em legado</div>
       <ul>
-        <li>Todo o ciclo é acompanhado e auditável, do recebimento até o resultado final.</li>
-        <li>Doações de qualquer valor são bem-vindas, e cada centavo faz a diferença em uma era de incentivos inéditos à filantropia brasileira.</li>
+        <li>Doações (de qualquer valor ou natureza) vão mais longe com a isenção de ITCMD em vigor;</li>
+        <li>Faça parte da história do clube: todos os doadores têm espaço garantido na memória e nos relatórios do CTB;</li>
+        <li>Receba informação, convite para eventos, prestação de contas, e a gratidão de todos beneficiados pelo seu gesto.</li>
       </ul>
       <div style="margin-top:33px;color:var(--azul-ctb);font-weight:850;">
-        Obrigado por acreditar no tênis, na inclusão e no futuro transparente e solidário do CTB. Juntos, a filantropia na Bahia é mais forte!
+        O futuro do CTB é mais forte, transparente e inclusivo. Apoie, divulgue, doe.<br>Juntos, fazemos uma Bahia campeã também na filantropia!
       </div>
     </div>
   </main>
@@ -209,6 +253,9 @@
       <span>Clube dos Tenistas da Bahia</span>
       <a href="mailto:paulo@ctb-ba.com.br">Contato: paulo@ctb-ba.com.br</a>
       <a href="https://wa.me/5571985304903" target="_blank">71-98530-4903</a>
+    </div>
+    <div class="footer-logo">
+      <img src="logo.svg" alt="Logo CTB rodapé" />
     </div>
   </footer>
 </body>
