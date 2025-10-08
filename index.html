@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>CTB | Reforma Tributária & Filantropia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <!-- Open Graph / Social Share tags -->
+  <meta property="og:title" content="CTB | Reforma Tributária & Filantropia"/>
+  <meta property="og:description" content="Tudo sobre o impacto da reforma tributária nas doações e na filantropia do CTB, vídeo, dados e passo a passo para apoiar!"/>
+  <meta property="og:image" content="rf.png"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="CTB | Reforma Tributária & Filantropia"/>
+  <meta name="twitter:description" content="Conheça as novidades da Reforma Tributária, apoie e compartilhe o CTB."/>
+  <meta name="twitter:image" content="rf.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --azul: #0056A6; --destaque: #2976D2; --vermelho: #E10600;
@@ -59,6 +68,11 @@
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById(pageId).classList.add('active');
       window.scrollTo(0, 0);
+      // Autoplay on page 1 only
+      if(pageId==='page1'){
+        var vid = document.querySelector('#page1 video');
+        if(vid){ vid.play(); }
+      }
     }
     window.onload = function() { showPage('page1'); };
   </script>
@@ -78,16 +92,20 @@
     <!-- Página 1: vídeo + frase -->
     <section id="page1" class="page">
       <div class="video-block">
-        <video src="rf.mp4" controls poster="rf.png"></video>
+        <video src="rf.mp4" controls poster="rf.png" autoplay muted></video>
         <div class="white-box">
           <div class="title-vermelho">O CTB faz a diferença nas comunidades!</div>
         </div>
       </div>
     </section>
-    <!-- Página 2: Infográfico reforma tributária -->
+    <!-- Página 2: Conteúdo ampliado da reforma tributária -->
     <section id="page2" class="page">
       <div class="reforma-card">
-        <b>A Reforma Tributária 2025</b> zerou o ITCMD para as doações filantrópicas, modernizou as regras e digitalizou todo o fluxo de apoio social no Brasil! Apoie o CTB e seja protagonista de uma nova era para o tênis, inclusão e cultura da Bahia.
+        <b>O que muda com a Reforma Tributária 2025?</b><br>
+        A Reforma Tributária aprovada em 2025 representa uma nova era para a filantropia e o terceiro setor! A partir de agora, toda doação para entidades sociais — clubes como o CTB, ONGs e fundações — é isenta de ITCMD. A lei trouxe simplicidade, agilidade digital, progressividade fiscal e justiça social para doadores de todos os níveis.<br><br>
+        Além disso, o imposto sobre doação se tornou progressivo: grandes doações contribuem mais e pequenos valores ficam protegidos. Empresas e pessoas físicas têm incentivo jurídico, transparência de recebimento e reconhecimento público pelas contribuições. Projetos sociais, bolsas esportivas, melhorias em infraestrutura e eventos culturais são multiplicados.<br><br>
+        Os benefícios se estendem para fundos patrimoniais, editais especiais, campanhas de mobilização e inclusão e parcerias intersetoriais. O novo marco digital permite acompanhamento em tempo real, auditabilidade e prestação de contas transparente e pública.<br><br>
+        As doações de bens, serviços, expertise e uso de tecnologias inovadoras ganham novo fôlego. O CTB lidera a disseminação da nova cultura solidária na Bahia e no Brasil!
       </div>
       <img src="rf.png" class="reforma-img" alt="Reforma Tributária CTB"/>
       <div class="stats-block">
@@ -98,28 +116,29 @@
           <tr><td class="stats-label">Total doado/ano</td><td class="stats-value">R$ 24,3 bi</td></tr>
         </table>
       </div>
-      <div class="highlight-title">O que mudou e por quê doar?</div>
+      <div class="highlight-title">Vantagens e exemplos reais</div>
       <ul>
-        <li><b>Isenção nacional do ITCMD</b> para OSCs e clubes: doação chega integral, sem desconto.</li>
-        <li><b>Alíquotas progressivas</b>: justiça social para grandes e pequenos doadores.</li>
-        <li><b>Digitalização e transparência</b>: mais velocidade e segurança de ponta a ponta.</li>
-        <li><b>Impacto real</b>: mais bolsas, eventos, oportunidades e estrutura para o tênis baiano.</li>
-        <li><b>Reconhecimento</b>: todo apoio recebe recibo e visibilidade institucional no CTB.</li>
+        <li><b>Isenção total para OSCs e clubes:</b> doações, bens e serviços chegam integrais ao destino, maximizando resultado social.</li>
+        <li><b>Agilidade e digitalização:</b> doador acompanha o caminho dos recursos, e entidades recebem sem burocracia.</li>
+        <li><b>Progressividade e justiça fiscal:</b> grande patrimônio contrubui mais, enquanto doações cotidianas têm incentivo extra.</li>
+        <li>Empresas ganham exposição institucional e vantagens legais ao apoiar projetos reconhecidos pela Secretaria de Fazenda.</li>
+        <li>Mais recursos para bolsas, projetos gratuitos, vagas em eventos e modernização da infraestrutura do CTB.</li>
+        <li><b>Reconhecimento público:</b> todos os doadores são citados em listas, relatórios e eventos comemorativos do clube.</li>
       </ul>
-      <div class="highlight-title">Como apoiar o CTB com a nova lei?</div>
+      <div class="highlight-title">Como participar da nova era?</div>
       <div class="doe-block">
-        <div><span class="destaque">1. Doação financeira</span>: pelo QRCode, Pix ou transferência, qualquer valor fortalece projetos sociais, bolsas e modernização.</div>
-        <div><span class="destaque">2. Contribua com bens e expertise</span>: prêmios, uniformes, manutenção, eventos e trabalho voluntário são bem-vindos e incentivados.</div>
-        <div><span class="destaque">3. Engaje sua empresa</span>: patrocínios têm benefício fiscal e ganham ainda mais estímulo em 2025.</div>
-        <div><span class="destaque">4. Espalhe a ideia</span>: indique, compartilhe e inspire outros a também construir mais esporte e inclusão pela filantropia.</div>
+        <div><span class="destaque">1. Doe qualquer valor</span>: use Pix, QRCode ou transferência para ajudar o clube diretamente.</div>
+        <div><span class="destaque">2. Doe serviços, prêmios ou especialidades</span>: toda expertise é valorizada e reconhecida.</div>
+        <div><span class="destaque">3. Traga empresas parceiras</span>: torneios, clínicas, equipamentos e patrocínios agora são ainda mais estratégicos.</div>
+        <div><span class="destaque">4. Divulgue a reforma tributária</span>: multiplique este novo ciclo solidário nas comunidades e inspire mais atuantes!</div>
         <a href="mailto:paulo@ctb-ba.com.br?subject=Quero%20apoiar%20o%20CTB" class="cta-donate">Quero ser doador</a>
       </div>
-      <div class="highlight-title">O que o Clube dos Tenistas da Bahia faz?</div>
+      <div class="highlight-title">O que o CTB transforma?</div>
       <ul>
-        <li>Multiplica acesso ao esporte entre jovens, adultos, idosos e pessoas com deficiência;</li>
-        <li>Oferece projetos sociais, aulas e eventos gratuitos;</li>
-        <li>Investe em infraestrutura, bolsas e inclusão de qualidade reconhecida na Bahia;</li>
-        <li>Transparência total sobre uso de recursos e resultados: acompanhe tudo em nossos canais.</li>
+        <li>Mais esporte e lazer inclusivo para crianças, idosos e PcD;</li>
+        <li>Impacto social ampliado: projetos ligados à cultura, educação e saúde na Bahia;</li>
+        <li>Infraestrutura moderna, eventos abertos, maior reconhecimento dos doadores;</li>
+        <li>Prestação pública de contas com acesso fácil nos canais CTB.</li>
       </ul>
     </section>
   </div>
