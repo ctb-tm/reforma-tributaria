@@ -1,114 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>CTB | Reforma Tributária & Filantropia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --azul-ctb: #0056A6;
-      --azul-destaque: #2976D2;
-      --vermelho-ctb: #E10600;
-      --cinza-bg: #f5f7fa;
-      --branco: #fff;
-      --radius: 26px;
+      --azul: #0056A6; --destaque: #2976D2; --vermelho: #E10600;
+      --cinza-bg: #f5f7fa; --cinza-card: #e9f0f6; --branco: #fff; --radius: 26px;
     }
-    body {
-      margin: 0; padding: 0;
-      background: var(--cinza-bg);
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
-      color: #222b35;
-      min-height: 100vh;
-    }
-    header {
-      background: var(--azul-ctb);
-      padding: 40px 0 30px 0;
-      border-bottom: 4px solid var(--azul-destaque);
-      box-sizing: border-box;
-    }
-    .header-box {
-      max-width: 1040px; margin: 0 auto; display: flex; align-items: center; gap: 30px; justify-content: center;
-      flex-wrap: wrap;
-    }
-    .logo-ctb {
-      height: 160px; width: auto; border-radius: 12px; background: #fff;
-      object-fit: contain; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .header-title {
-      color: #fff; font-weight: 900; font-size: 2.17rem;
-      letter-spacing: -1px; line-height: 1.13; margin: 0; text-align: left;
-      text-shadow: 0 2px 10px rgba(0,0,0,.09);
-      max-width: 650px;
-      padding-left: 10px;
-    }
-    .nav-pages {
-      max-width: 600px; margin: 25px auto 0 auto; display: flex; gap: 16px; justify-content: center;
-    }
-    .nav-btn {
-      background: var(--azul-destaque); color: #fff; font-weight: 800;
-      border: none; border-radius: 8px; padding: 9px 25px; cursor: pointer;
-      font-size: 1.12rem; transition: background 0.2s;
-    }
-    .nav-btn:hover { background: #003d75;}
-    .main-container { min-height: 48vh; padding-top:16px;}
-    .page { display: none; }
-    .page.active { display: flex; flex-direction: column; align-items: center; }
-    .video-block {
-      background: #fff;
-      border-radius: var(--radius);
-      margin: 28px auto 22px auto;
-      width: 97vw; max-width: 600px; box-shadow: 0 4px 16px #0056a616;
-      display: flex; flex-direction: column; align-items: center; padding: 38px 14px 12px 14px;
-    }
-    video {
-      width: 100%; max-width: 560px; border-radius: 11px;
-      background: #f3f3f6; margin-bottom: 26px;
-      box-shadow: 0 2px 10px #bbb5;
-    }
-    .white-box {
-      background: #fff; border-radius: 14px; box-shadow: 0 1px 8px #e3e5ed44;
-      padding: 28px 10px 26px 10px; margin-top: -8px; margin-bottom: 10px;
-      width: 99%; max-width: 510px; display: flex; align-items: center; justify-content: center;
-    }
-    .title-vermelho {
-      color: var(--vermelho-ctb); font-size: 1.35rem;
-      font-weight: 900; text-align: center; letter-spacing: -1px;
-      margin: 0;
-    }
-    footer {
-      background: var(--azul-ctb); color: #fff; border-top: 4px solid var(--azul-destaque);
-      padding: 28px 12vw 18px 12vw; display: flex; align-items: center;
-      flex-direction: column; gap: 17px; width: 100%; box-sizing: border-box;
-      margin-top: 38px;
-    }
-    .footer-row {
-      display: flex; flex-direction: row; align-items: center; justify-content: center;
-      gap: 36px; margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-    .footer-row a {
-      text-decoration: none; color: #fff; font-weight: 700; font-size: 1.14rem;
-      transition: color 0.2s;
-    }
-    .footer-row a:hover { color: #E10600; }
-    .footer-linkedin {
-      display: flex; align-items: center; justify-content: center; margin: 0 12px;
-    }
-    .footer-linkedin img {
-      width: 59px; height: 59px; border-radius: 50%; background: #fff;
-      object-fit: contain; box-shadow: 0 4px 19px #0056a628; display: block;
-      transition: filter .15s;
-    }
-    .footer-linkedin img:hover { filter: brightness(1.1) drop-shadow(0 3px 9px #2976d230);}
+    body {margin:0;padding:0;background:var(--cinza-bg);font-family:'Inter',Arial,sans-serif;color:#222b35;min-height:100vh;}
+    header {background:var(--azul);padding:40px 0 20px 0;border-bottom:4px solid var(--destaque);}
+    .header-box {max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:30px;justify-content:center;flex-wrap:wrap;}
+    .logo-ctb {height:160px;width:auto;border-radius:12px;background:#fff;object-fit:contain;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+    .header-title {color:#fff;font-weight:900;font-size:2.17rem;letter-spacing:-1px;line-height:1.13;margin:0;text-shadow:0 2px 10px rgba(0,0,0,.09);max-width:650px;padding-left:10px;}
+    .nav-pages {max-width:600px;margin:25px auto 0 auto;display:flex;gap:16px;justify-content:center;}
+    .nav-btn {background:var(--destaque);color:#fff;font-weight:800;border:none;border-radius:8px;padding:9px 25px;cursor:pointer;font-size:1.12rem;transition:background .2s;}
+    .nav-btn:hover{background:#003d75;}
+    .main-container{min-height:48vh;padding-top:16px;}
+    .page{display:none;}
+    .page.active{display:flex;flex-direction:column;align-items:center;}
+    .video-block{background:#fff;border-radius:var(--radius);margin:28px auto 22px auto;width:97vw;max-width:600px;box-shadow:0 4px 16px #0056a616;display:flex;flex-direction:column;align-items:center;padding:38px 14px 12px 14px;}
+    video{width:100%;max-width:560px;border-radius:11px;background:#f3f3f6;margin-bottom:26px;box-shadow:0 2px 10px #bbb5;}
+    .white-box{background:#fff;border-radius:14px;box-shadow:0 1px 8px #e3e5ed44;padding:28px 10px 26px 10px;margin-top:-8px;margin-bottom:10px;width:99%;max-width:510px;display:flex;align-items:center;justify-content:center;}
+    .title-vermelho{color:var(--vermelho);font-size:1.35rem;font-weight:900;text-align:center;letter-spacing:-1px;margin:0;}
+    .reforma-card{background:var(--destaque);border-radius:14px;color:#fff;font-size:1.13rem;font-weight:500;box-shadow:0 2px 8px rgba(41,118,210,.11);padding:20px 7%;margin:0 0 13px 0;text-align:left;max-width:600px;}
+    .reforma-img{width:99vw;max-width:600px;border-radius:19px;margin-bottom:16px;box-shadow:0 1px 9px #2976d228;background:#f6f7fa;}
+    .stats-block{background:var(--cinza-card);padding:14px 7%;border-radius:12px;box-shadow:0 2px 8px #e3e5ed44;margin-bottom:7px;width:100%;max-width:600px;}
+    .stats-table{width:100%;border-collapse:collapse;}
+    .stats-table td{padding:8px 7px;border-bottom:1px solid #e3e5ed;font-size:.98rem;}
+    .stats-label{color:var(--azul);font-weight:700;}
+    .stats-value{color:var(--destaque);text-align:right;}
+    .highlight-title{font-weight:900;color:var(--azul);font-size:1.18rem;margin:18px 0 8px 0;letter-spacing:.011em;text-transform:uppercase;max-width:600px;}
+    ul{margin:0 0 13px 14px;line-height:1.7;max-width:600px;}
+    .doe-block{background:#eaf5fb;border-radius:13px;padding:13px 14px;color:#25303b;font-weight:500;font-size:1.08rem;box-shadow:0 1px 7px #d8e8f3a1;margin-bottom:7px;max-width:600px;}
+    .doe-block .destaque{color:var(--azul);font-weight:900;}
+    .cta-donate{background:var(--destaque);color:#fff;padding:12px 14px;font-weight:700;font-size:1.07rem;border:none;border-radius:8px;cursor:pointer;margin-top:7px;align-self:flex-start;}
+    .cta-donate:hover{background:var(--azul);}
+    footer{background:var(--azul);color:#fff;border-top:4px solid var(--destaque);padding:28px 12vw 18px 12vw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:100%;box-sizing:border-box;margin-top:28px;}
+    .footer-row{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:30px;margin-bottom:16px;flex-wrap:wrap;}
+    .footer-row a{text-decoration:none;color:#fff;font-weight:700;font-size:1.15rem;transition:color .2s;}
+    .footer-row a:hover{color:#E10600;}
+    .footer-linkedin{display:flex;align-items:center;justify-content:center;margin:0 8px;}
+    .footer-linkedin img{width:59px;height:59px;border-radius:50%;background:#fff;object-fit:contain;box-shadow:0 4px 19px #0056a628;display:block;transition:filter .15s;}
+    .footer-linkedin img:hover{filter:brightness(1.1) drop-shadow(0 3px 9px #2976d230);}
     @media (max-width:650px){
-      .header-title { font-size: 1.08rem;}
-      .header-box {flex-direction: column; align-items: flex-start; gap: 15px;}
+      .header-title{font-size:1.08rem;}
+      .header-box{flex-direction:column;align-items:flex-start;gap:15px;}
       .nav-pages{margin-top:18px;}
       .logo-ctb{height:80px;}
-      .video-block{max-width:98vw;}
-      .white-box{max-width:98vw;}
-      .footer-row{flex-direction: column; gap: 15px;}
+      .video-block,.reforma-card,.stats-block,.reforma-img,.highlight-title,ul,.doe-block{max-width:98vw;}
+      .footer-row{flex-direction:column;gap:15px;}
     }
   </style>
   <script>
@@ -123,7 +66,7 @@
 <body>
   <header>
     <div class="header-box">
-      <img src="ctb.png" alt="Logo CTB" class="logo-ctb" />
+      <img src="ctb.png" alt="Logo CTB" class="logo-ctb"/>
       <div class="header-title">Reforma Tributária & Filantropia<br>Clube dos Tenistas da Bahia</div>
     </div>
     <div class="nav-pages">
@@ -132,7 +75,7 @@
     </div>
   </header>
   <div class="main-container">
-    <!-- Página 1 -->
+    <!-- Página 1: vídeo + frase -->
     <section id="page1" class="page">
       <div class="video-block">
         <video src="rf.mp4" controls poster="rf.png"></video>
@@ -141,14 +84,43 @@
         </div>
       </div>
     </section>
-    <!-- Página 2 (idêntica à página 1) -->
+    <!-- Página 2: Infográfico reforma tributária -->
     <section id="page2" class="page">
-      <div class="video-block">
-        <video src="rf.mp4" controls poster="rf.png"></video>
-        <div class="white-box">
-          <div class="title-vermelho">O CTB faz a diferença nas comunidades!</div>
-        </div>
+      <div class="reforma-card">
+        <b>A Reforma Tributária 2025</b> zerou o ITCMD para as doações filantrópicas, modernizou as regras e digitalizou todo o fluxo de apoio social no Brasil! Apoie o CTB e seja protagonista de uma nova era para o tênis, inclusão e cultura da Bahia.
       </div>
+      <img src="rf.png" class="reforma-img" alt="Reforma Tributária CTB"/>
+      <div class="stats-block">
+        <table class="stats-table">
+          <tr><td class="stats-label">PIB do Terceiro Setor</td><td class="stats-value">R$ 221 bilhões</td></tr>
+          <tr><td class="stats-label">Doadores ativos</td><td class="stats-value">42,5 milhões</td></tr>
+          <tr><td class="stats-label">Empregos mantidos</td><td class="stats-value">5,9 milhões</td></tr>
+          <tr><td class="stats-label">Total doado/ano</td><td class="stats-value">R$ 24,3 bi</td></tr>
+        </table>
+      </div>
+      <div class="highlight-title">O que mudou e por quê doar?</div>
+      <ul>
+        <li><b>Isenção nacional do ITCMD</b> para OSCs e clubes: doação chega integral, sem desconto.</li>
+        <li><b>Alíquotas progressivas</b>: justiça social para grandes e pequenos doadores.</li>
+        <li><b>Digitalização e transparência</b>: mais velocidade e segurança de ponta a ponta.</li>
+        <li><b>Impacto real</b>: mais bolsas, eventos, oportunidades e estrutura para o tênis baiano.</li>
+        <li><b>Reconhecimento</b>: todo apoio recebe recibo e visibilidade institucional no CTB.</li>
+      </ul>
+      <div class="highlight-title">Como apoiar o CTB com a nova lei?</div>
+      <div class="doe-block">
+        <div><span class="destaque">1. Doação financeira</span>: pelo QRCode, Pix ou transferência, qualquer valor fortalece projetos sociais, bolsas e modernização.</div>
+        <div><span class="destaque">2. Contribua com bens e expertise</span>: prêmios, uniformes, manutenção, eventos e trabalho voluntário são bem-vindos e incentivados.</div>
+        <div><span class="destaque">3. Engaje sua empresa</span>: patrocínios têm benefício fiscal e ganham ainda mais estímulo em 2025.</div>
+        <div><span class="destaque">4. Espalhe a ideia</span>: indique, compartilhe e inspire outros a também construir mais esporte e inclusão pela filantropia.</div>
+        <a href="mailto:paulo@ctb-ba.com.br?subject=Quero%20apoiar%20o%20CTB" class="cta-donate">Quero ser doador</a>
+      </div>
+      <div class="highlight-title">O que o Clube dos Tenistas da Bahia faz?</div>
+      <ul>
+        <li>Multiplica acesso ao esporte entre jovens, adultos, idosos e pessoas com deficiência;</li>
+        <li>Oferece projetos sociais, aulas e eventos gratuitos;</li>
+        <li>Investe em infraestrutura, bolsas e inclusão de qualidade reconhecida na Bahia;</li>
+        <li>Transparência total sobre uso de recursos e resultados: acompanhe tudo em nossos canais.</li>
+      </ul>
     </section>
   </div>
   <footer>
