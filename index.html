@@ -1,41 +1,199 @@
-      // Autoplay on page 1 only
-      if(pageId==='page1'){
-        var vid = document.querySelector('#page1 video');
-        if(vid){ vid.play(); }
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CTB | Reforma Tributária & Filantropia</title>
+  <meta property="og:title" content="CTB | Reforma Tributária & Filantropia"/>
+  <meta property="og:description" content="Como a Reforma Tributária 2025 amplia o impacto do CTB. Veja vídeo, dados, etapas e como doar!"/>
+  <meta property="og:image" content="rf.png"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="CTB | Reforma Tributária & Filantropia"/>
+  <meta name="twitter:description" content="Apoie o CTB! Entenda e compartilhe a nova era das doações na Reforma Tributária."/>
+  <meta name="twitter:image" content="rf.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --azul: #0056A6;
+      --destaque: #2976D2;
+      --verde: #2BA84A;
+      --vermelho: #E10600;
+      --cinza-bg: #f5f7fa;
+      --cinza-card: #e9f0f6;
+      --branco: #fff;
+      --radius: 18px;
+      --shadow: 0 4px 16px rgba(0,0,0,0.09);
+    }
+    body {margin:0;padding:0;background:var(--cinza-bg);font-family:'Inter',Arial,sans-serif;color:#222b35;min-height:100vh;}
+    header {
+      background:var(--azul);
+      color: #fff;
+      padding: 30px 0 15px 0;
+      box-shadow: var(--shadow);
+    }
+    .header-box {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; flex-wrap: wrap; max-width: 1140px; margin: 0 auto;
+      padding: 0 5vw;
+    }
+    .header-main { display:flex; align-items:center; gap: 24px; }
+    .logo-ctb {height:90px; width:auto; border-radius:12px; background: #fff;
+      object-fit:contain; box-shadow: 0 2px 8px rgba(0,0,0,0.07);}
+    .header-title { color:#fff; font-weight:900; font-size:2rem; letter-spacing:-1px; line-height:1.12; text-shadow:0 2px 10px #00206013; margin: 0;}
+    .header-qrcode { display: flex; flex-direction:column; align-items:center;}
+    .qrcode-img {height:65px;width:auto;border-radius:10px;background:#fff;padding:5px;margin-bottom:2px;box-shadow:0 2px 7px rgba(0,0,0,.08);}
+    .qr-label {color:#000;font-weight:700;font-size:1.04rem;margin-top:2px;}
+    .nav-pages {margin:26px auto 0 auto;display:flex;gap:12px;justify-content:center;}
+    .nav-btn {
+      background:var(--destaque);color:#fff;font-weight:800;border:none;border-radius:8px;
+      padding:8px 19px;cursor:pointer;font-size:1.09rem;transition:background .2s;
+    }
+    .nav-btn.active, .nav-btn:focus {background:var(--azul);}
+    .nav-btn:hover {background:#003d75;}
+    .main-container{min-height:44vh;}
+    .page{display:none;}
+    .page.active{display:flex;flex-direction:column;align-items:center;}
+    /* PÁGINA 1 */
+    .video-block{background:#fff;border-radius:var(--radius);margin:34px auto 22px auto;width:97vw;max-width:600px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;padding:32px 10px 12px 10px;}
+    video{width:100%;max-width:560px;border-radius:11px;background:#f3f3f6;margin-bottom:26px;box-shadow:0 2px 10px #bbb5;}
+    .white-box{background:#fff;border-radius:14px;box-shadow:0 1px 8px #e3e5ed44;padding:26px 10px 18px 10px;margin-top:-8px;margin-bottom:16px;width:99%;max-width:510px;display:flex;align-items:center;justify-content:center;}
+    .title-vermelho{color:var(--vermelho);font-size:1.32rem;font-weight:900;text-align:center;letter-spacing:-1px;margin:0;}
+    .botao-doar {display:block;background:var(--azul);color:#fff;border:none;border-radius:9px;padding:15px 32px;font-size:1.08rem;font-weight:800;text-align:center;margin:25px auto 6px auto;cursor:pointer;transition:background .16s;box-shadow:0 2px 7px rgba(41,118,210,.07);}
+    .botao-doar:hover {background:var(--destaque);}
+    /* PÁGINA 2 */
+    .reforma-card{background:var(--destaque);border-radius:14px;color:#fff;font-size:1.13rem;font-weight:500;box-shadow:0 2px 8px rgba(41,118,210,.11);padding:20px 7%;margin:30px 0 14px 0;text-align:left;max-width:600px;}
+    .reforma-img{width:99vw;max-width:600px;border-radius:19px;margin-bottom:17px;box-shadow:0 1px 9px #2976d228;background:#f6f7fa;}
+    .stats-block{background:var(--cinza-card);padding:14px 7%;border-radius:12px;box-shadow:0 2px 8px #e3e5ed44;margin-bottom:7px;width:100%;max-width:600px;}
+    .stats-table{width:100%;border-collapse:collapse;}
+    .stats-table td{padding:8px 7px;border-bottom:1px solid #e3e5ed;font-size:.98rem;}
+    .stats-label{color:var(--azul);font-weight:700;}
+    .stats-value{color:var(--destaque);text-align:right;}
+    .highlight-title{font-weight:900;color:var(--azul);font-size:1.18rem;margin:17px 0 7px 0;letter-spacing:.011em;text-transform:uppercase;max-width:600px;}
+    ul{margin:0 0 13px 14px;line-height:1.7;max-width:600px;}
+    .doe-block{background:#eaf5fb;border-radius:13px;padding:13px 14px;color:#25303b;font-weight:500;font-size:1.08rem;box-shadow:0 1px 7px #d8e8f3a1;margin-bottom:7px;max-width:600px;}
+    .doe-block .destaque{color:var(--azul);font-weight:900;}
+    .cta-donate{background:var(--destaque);color:#fff;padding:12px 14px;font-weight:700;font-size:1.07rem;border:none;border-radius:8px;cursor:pointer;margin-top:12px;align-self:flex-start;}
+    .cta-donate:hover{background:var(--azul);}
+    /* PÁGINA 3 */
+    .passos-container {
+      max-width: 1000px; margin: 36px auto 36px auto;
+      padding: 0 18px;
+    }
+    .step {
+      background: var(--branco);
+      border-radius: var(--radius);
+      padding: 25px 20px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+    }
+    .step:hover {transform:translateY(-5px);}
+    .step h2 {color: var(--azul);font-size: 1.3rem;margin-bottom: 10px;}
+    .step p {margin: 8px 0;}
+    .benefit {
+      background: var(--verde);
+      color: #fff;
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+    .passos-container ul { padding-left: 20px;}
+    .cta { display:block;text-align:center;margin:40px auto;background:var(--destaque);color:#fff;padding:13px 22px; font-weight:700;font-size:1.1rem;border-radius:12px;text-decoration:none;transition:background .2s; max-width:310px;}
+    .cta:hover {background: var(--azul);}
+    footer {
+      background: var(--azul);
+      color: #fff;
+      border-top: 4px solid var(--destaque);
+      padding: 26px 3vw 16px 3vw;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .footer-center {display:flex;flex-direction:column;align-items:center;justify-content:center;margin-left:auto;margin-right:auto;gap:7px;}
+    .footer-row{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;}
+    .footer-row a{text-decoration:none;color:#fff;font-weight:700;font-size:1.1rem;transition:color .2s;}
+    .footer-row a:hover{color:#E10600;}
+    .footer-linkedin{align-items:center;justify-content:center;}
+    .footer-linkedin img{width:40px;height:40px; border-radius:50%;background:#fff;object-fit:contain;box-shadow:0 2px 10px #0056a628;display:block;transition:filter .15s;}
+    .footer-linkedin img:hover{filter:brightness(1.1) drop-shadow(0 3px 9px #2976d230);}
+    .footer-logo img {width:50px;height:50px; border-radius:6px; background:#fff;box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+    @media (max-width:800px){
+      .header-box {flex-direction:column;gap:11px;}
+      .header-main{flex-direction:column;}
+      .logo-ctb{height:60px;}
+      .footer-logo{margin:14px auto 0 auto;}
+      .footer-logo img{width:40px;height:40px;}
+      footer {flex-direction: column; align-items:center;}
+    }
+    @media (max-width:650px){
+      .main-container, .passos-container {padding:0;}
+      .header-title {font-size:1.02rem;}
+      .video-block, .reforma-card, .stats-block, .reforma-img, .highlight-title, ul, .doe-block {max-width:98vw;}
+      .footer-row{flex-direction:column;gap:9px;}
+      .footer-logo{margin:13px auto auto auto;}
+    }
+  </style>
+  <script>
+    function showPage(pageId,btn) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+      if(btn) btn.classList.add('active');
+      window.scrollTo(0,0);
+      if(pageId === 'page1') {
+        var vid=document.querySelector('#page1 video');
+        if(vid){
+          vid.muted = false;
+          vid.autoplay = true;
+          vid.load();
+          setTimeout(()=>{ vid.play(); }, 80);
+        }
       }
     }
-    window.onload = function() { showPage('page1'); };
+    window.onload=function(){showPage('page1',document.querySelector('.nav-btn'));}
   </script>
 </head>
 <body>
   <header>
     <div class="header-box">
-      <img src="ctb.png" alt="Logo CTB" class="logo-ctb"/>
-      <div class="header-title">Reforma Tributária & Filantropia<br>Clube dos Tenistas da Bahia</div>
+      <div class="header-main">
+        <img src="ctb.png" alt="Logo CTB" class="logo-ctb"/>
+        <div class="header-title">
+          Reforma Tributária & Filantropia<br>Clube dos Tenistas da Bahia
+        </div>
+      </div>
+      <div class="header-qrcode">
+        <img src="qrcode.png" alt="QRCode - Doe CTB" class="qrcode-img"/>
+        <span class="qr-label">DOE</span>
+      </div>
     </div>
     <div class="nav-pages">
-      <button class="nav-btn" onclick="showPage('page1')">Página 1</button>
-      <button class="nav-btn" onclick="showPage('page2')">Página 2</button>
+      <button class="nav-btn" onclick="showPage('page1',this)">Página 1</button>
+      <button class="nav-btn" onclick="showPage('page2',this)">Página 2</button>
+      <button class="nav-btn" onclick="showPage('page3',this)">Página 3</button>
     </div>
   </header>
   <div class="main-container">
-    <!-- Página 1: vídeo + frase -->
+    <!-- Página 1: Vídeo + frase + botão DOAR -->
     <section id="page1" class="page">
       <div class="video-block">
-        <video src="rf.mp4" controls poster="rf.png" autoplay muted></video>
+        <video src="rf.mp4" controls poster="rf.png" autoplay></video>
         <div class="white-box">
           <div class="title-vermelho">O CTB faz a diferença nas comunidades!</div>
         </div>
+        <a href="mailto:paulo@ctb-ba.com.br?subject=Quero%20doar%20para%20o%20CTB" class="botao-doar">DOAR</a>
       </div>
     </section>
-    <!-- Página 2: Conteúdo ampliado da reforma tributária -->
+    <!-- Página 2: Infográfico reforma tributária -->
     <section id="page2" class="page">
       <div class="reforma-card">
-        <b>O que muda com a Reforma Tributária 2025?</b><br>
-        A Reforma Tributária aprovada em 2025 representa uma nova era para a filantropia e o terceiro setor! A partir de agora, toda doação para entidades sociais — clubes como o CTB, ONGs e fundações — é isenta de ITCMD. A lei trouxe simplicidade, agilidade digital, progressividade fiscal e justiça social para doadores de todos os níveis.<br><br>
-        Além disso, o imposto sobre doação se tornou progressivo: grandes doações contribuem mais e pequenos valores ficam protegidos. Empresas e pessoas físicas têm incentivo jurídico, transparência de recebimento e reconhecimento público pelas contribuições. Projetos sociais, bolsas esportivas, melhorias em infraestrutura e eventos culturais são multiplicados.<br><br>
-        Os benefícios se estendem para fundos patrimoniais, editais especiais, campanhas de mobilização e inclusão e parcerias intersetoriais. O novo marco digital permite acompanhamento em tempo real, auditabilidade e prestação de contas transparente e pública.<br><br>
-        As doações de bens, serviços, expertise e uso de tecnologias inovadoras ganham novo fôlego. O CTB lidera a disseminação da nova cultura solidária na Bahia e no Brasil!
+        <b>Reforma Tributária 2025:</b> O novo marco da filantropia e apoio social! Agora, todas as doações ao CTB, ONGs e entidades sociais são isentas de ITCMD, com processos digitais, justiça fiscal e incentivo para pessoas físicas e empresas. Isso amplia bolsas, eventos gratuitos, inclusão e reconhecimento dos doadores.
       </div>
       <img src="rf.png" class="reforma-img" alt="Reforma Tributária CTB"/>
       <div class="stats-block">
@@ -46,40 +204,99 @@
           <tr><td class="stats-label">Total doado/ano</td><td class="stats-value">R$ 24,3 bi</td></tr>
         </table>
       </div>
-      <div class="highlight-title">Vantagens e exemplos reais</div>
+      <div class="highlight-title">Destaques e vantagens</div>
       <ul>
-        <li><b>Isenção total para OSCs e clubes:</b> doações, bens e serviços chegam integrais ao destino, maximizando resultado social.</li>
-        <li><b>Agilidade e digitalização:</b> doador acompanha o caminho dos recursos, e entidades recebem sem burocracia.</li>
-        <li><b>Progressividade e justiça fiscal:</b> grande patrimônio contrubui mais, enquanto doações cotidianas têm incentivo extra.</li>
-        <li>Empresas ganham exposição institucional e vantagens legais ao apoiar projetos reconhecidos pela Secretaria de Fazenda.</li>
-        <li>Mais recursos para bolsas, projetos gratuitos, vagas em eventos e modernização da infraestrutura do CTB.</li>
-        <li><b>Reconhecimento público:</b> todos os doadores são citados em listas, relatórios e eventos comemorativos do clube.</li>
+        <li><b>Isenção total do ITCMD</b> para doações, bens e serviços ao CTB.</li>
+        <li><b>Rapidez digital:</b> aprovação e reconhecimento de doações em horas, totalmente online.</li>
+        <li><b>Transparência:</b> relatórios e prestação de contas em tempo real.</li>
+        <li><b>Mais bolsas e eventos grátis:</b> ampliação direta do acesso ao esporte, cultura e educação.</li>
+        <li><b>Justiça fiscal:</b> grandes contribuições são progressivas e pequenos doadores têm incentivo máximo.</li>
       </ul>
-      <div class="highlight-title">Como participar da nova era?</div>
+      <div class="highlight-title">Como participar?</div>
       <div class="doe-block">
-        <div><span class="destaque">1. Doe qualquer valor</span>: use Pix, QRCode ou transferência para ajudar o clube diretamente.</div>
-        <div><span class="destaque">2. Doe serviços, prêmios ou especialidades</span>: toda expertise é valorizada e reconhecida.</div>
-        <div><span class="destaque">3. Traga empresas parceiras</span>: torneios, clínicas, equipamentos e patrocínios agora são ainda mais estratégicos.</div>
-        <div><span class="destaque">4. Divulgue a reforma tributária</span>: multiplique este novo ciclo solidário nas comunidades e inspire mais atuantes!</div>
+        <div><span class="destaque">1. Doe valores ou bens</span>: utilize Pix, QRCode ou transferência.</div>
+        <div><span class="destaque">2. Contribua com serviços e expertise</span>: voluntariado, oficinas, prêmios, treinamentos.</div>
+        <div><span class="destaque">3. Engaje sua empresa</span>: patrocine ações, torneios, mostre responsabilidade social.</div>
         <a href="mailto:paulo@ctb-ba.com.br?subject=Quero%20apoiar%20o%20CTB" class="cta-donate">Quero ser doador</a>
       </div>
-      <div class="highlight-title">O que o CTB transforma?</div>
+      <div class="highlight-title">Impacto CTB</div>
       <ul>
-        <li>Mais esporte e lazer inclusivo para crianças, idosos e PcD;</li>
-        <li>Impacto social ampliado: projetos ligados à cultura, educação e saúde na Bahia;</li>
-        <li>Infraestrutura moderna, eventos abertos, maior reconhecimento dos doadores;</li>
-        <li>Prestação pública de contas com acesso fácil nos canais CTB.</li>
+        <li>Projetos educacionais inovadores;</li>
+        <li>Mais bolsas, inclusão PcD, cultura e saúde;</li>
+        <li>Compromisso público na aplicação dos recursos;</li>
+        <li>Prestação de contas contínua e reconhecimento aos apoiadores!</li>
       </ul>
+    </section>
+    <!-- Página 3: Como Fazer/Passos -->
+    <section id="page3" class="page">
+      <div class="passos-container">
+        <div class="step">
+          <h2>1️⃣ Recebimento de Doações sem ITCMD</h2>
+          <p>O CTB pode receber doações de pessoas físicas e jurídicas <strong>isentas do ITCMD</strong>.</p>
+          <ul>
+            <li>Doações via Pix, transferência ou QR code.</li>
+            <li>Registrar e formalizar cada doação.</li>
+            <li><span class="benefit">Benefício:</span> Todo recurso chega integral ao clube.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h2>2️⃣ Transparência e Prestação de Contas</h2>
+          <p>Utilizar sistemas digitais para mostrar o caminho de cada doação.</p>
+          <ul>
+            <li>Relatórios online e dashboards de impacto social.</li>
+            <li><span class="benefit">Benefício:</span> Aumenta confiança e adesão de novos doadores.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h2>3️⃣ Grandes Patrocínios e Incentivos Fiscais</h2>
+          <p>Empresas podem contribuir e ter <strong>incentivos fiscais garantidos</strong>.</p>
+          <ul>
+            <li>Pacotes de patrocínio para torneios, divulgação e reconhecimento institucional.</li>
+            <li><span class="benefit">Benefício:</span> Mais recursos e visibilidade.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h2>4️⃣ Doações de Serviços e Expertise</h2>
+          <p>Doe aulas, clínicas, treinamentos e materiais.</p>
+          <ul>
+            <li>Campanhas “Doe conhecimento”. Divulgação em eventos e relatórios.</li>
+            <li><span class="benefit">Benefício:</span> Amplia alcance do clube.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h2>5️⃣ Reconhecimento Público</h2>
+          <p>Todos os doadores ganham <strong>exposição e reconhecimento legal</strong>.</p>
+          <ul>
+            <li>Listas de apoiadores em redes sociais e eventos do CTB;</li>
+            <li>Relatórios anuais de impacto.</li>
+            <li><span class="benefit">Benefício:</span> Engajamento ampliado.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h2>6️⃣ Gestão Digital e Acompanhamento em Tempo Real</h2>
+          <p>Rastreamento com plataformas online.</p>
+          <ul>
+            <li>Auditoria, compliance e credibilidade máxima.</li>
+            <li><span class="benefit">Benefício:</span> Eficiência e confiança no processo.</li>
+          </ul>
+        </div>
+        <a href="mailto:paulo@ctb-ba.com.br?subject=Quero%20apoiar%20o%20CTB" class="cta">Quero Ajudar o CTB</a>
+      </div>
     </section>
   </div>
   <footer>
-    <div class="footer-row">
-      <a href="mailto:paulo@ctb-ba.com.br" title="Enviar email para paulo">E-mail: paulo@ctb-ba.com.br</a>
-      <a href="https://wa.me/5571985304903" target="_blank" title="WhatsApp">WhatsApp: 71-98530-4903</a>
-      <a class="footer-linkedin" href="https://www.linkedin.com/paulocarneiro.pfeira" target="_blank" title="LinkedIn Paulo Carneiro">
-        <img src="ctblinkedin.png" alt="LinkedIn" />
-      </a>
+    <div class="footer-center">
+      <div class="footer-row">
+        <a href="mailto:paulo@ctb-ba.com.br" title="Enviar email para paulo">E-mail: paulo@ctb-ba.com.br</a>
+        <a href="https://wa.me/5571985304903" target="_blank" title="WhatsApp">WhatsApp: 71-98530-4903</a>
+        <a class="footer-linkedin" href="https://www.linkedin.com/paulocarneiro.pfeira" target="_blank" title="LinkedIn Paulo Carneiro">
+          <img src="ctblinkedin.png" alt="LinkedIn"/>
+        </a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="logo.svg" alt="Logo CTB Rodapé"/>
     </div>
   </footer>
-  </body>
-  
+</body>
+            </html>
